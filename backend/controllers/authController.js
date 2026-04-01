@@ -74,8 +74,9 @@ export const login = async (req, res) => {
     });
 
   } catch (err) {
-    res.status(500).json(err);
-  }
+  console.log("🔥 ERROR:", err);   // 👈 ye sabse important
+  res.status(500).json({ error: err.message });
+}
 };
 
 export const getMe = async (req, res) => {
