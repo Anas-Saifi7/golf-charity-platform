@@ -1,3 +1,4 @@
+import React from "react";
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 
 import Home from "./pages/Home";
@@ -7,7 +8,7 @@ import Subscription from "./pages/Subscription";
 import Charity from "./pages/Charity";
 import Draw from "./pages/Draw";
 import Admin from "./pages/Admin";
-import Success from "./pages/success";
+import Success from "./pages/Success";
 import Winnings from "./pages/Winnings";
 
 function App() {
