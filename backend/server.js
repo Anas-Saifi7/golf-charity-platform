@@ -17,7 +17,10 @@ import userRoutes from "./routes/userRoutes.js";
 const app = express();
 
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+  origin: process.env.CLIENT_URL,
+  credentials: true
+}));
 
 connectDB();
 // console.log(process.env.STRIPE_SECRET_KEY);
