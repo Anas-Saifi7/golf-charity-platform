@@ -30,7 +30,7 @@ export const login = async (req, res) => {
     const { email, password } = req.body;
 
     // 🔥 ADMIN LOGIN (HARDCODED)
-    if (email === "anas.saifi4201@gmail.com" && password === "Anas@7668Saifi") {
+    if (email === "anas.saifi4201@gmail.com" && password === "Anas@7668S") {
       const adminUser = {
         _id: "admin123",
         name: "Anas",
