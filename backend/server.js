@@ -16,9 +16,15 @@ import userRoutes from "./routes/userRoutes.js";
 
 const app = express();
 
-app.use(express.json());
 app.use(cors({
-  origin: process.env.CLIENT_URL,
+  origin: function (origin, callback) {
+    const allowedOrigins = process.env.CLIENT_URL.split(',');
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
   credentials: true
 }));
 
