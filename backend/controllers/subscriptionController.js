@@ -33,8 +33,10 @@ export const createCheckoutSession = async (req, res) => {
           quantity: 1
         }
       ],
-      success_url: `${process.env.CLIENT_URL}/success?userId=${userId}&plan=${plan}`,
-      cancel_url: `${process.env.CLIENT_URL}/cancel`
+      // success_url: `${process.env.CLIENT_URL}/success?userId=${userId}&plan=${plan}`,
+      // cancel_url: `${process.env.CLIENT_URL}/cancel`
+      success_url: `${process.env.FRONTEND_URL}/success?userId=${userId}&plan=${plan}`,
+cancel_url: `${process.env.FRONTEND_URL}/cancel`
     });
 
     res.json({ url: session.url });
