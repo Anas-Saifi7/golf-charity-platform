@@ -9,6 +9,10 @@ export const createCheckoutSession = async (req, res) => {
     const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
     const { plan, userId } = req.body;
 
+        console.log("STRIPE KEY:", process.env.STRIPE_SECRET_KEY ? "Present ✅" : "Missing ❌");
+    console.log("PLAN:", plan, "USER:", userId);
+    console.log("CLIENT_URL:", process.env.CLIENT_URL);
+
     let price = 0;
 
     if (plan === "monthly") price = 500;   // ₹500
@@ -36,6 +40,7 @@ export const createCheckoutSession = async (req, res) => {
     res.json({ url: session.url });
 
   } catch (err) {
+    console.error("CHECKOUT ERROR:", err.message);
    res.status(500).json({ msg: "Server Error" });
   }
 };
